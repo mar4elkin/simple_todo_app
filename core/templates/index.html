@@ -1,0 +1,30 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'core/style.css' %}">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+   
+
+    {% comment %} <tr><th>Id</th><th>Название</th></tr>
+    {% for manags in manga %}
+        <tr><td>{{ manags.id }}</td><td><a href="detail/{{ manags.id }}">{{ manags.title }}</a></td></tr>
+    {% endfor %} {% endcomment %}
+
+
+<main role="main" class="container">
+    <div class="my-3 p-3 bg-white rounded box-shadow">
+    <h1 class="pb-2 mb-0">TODOSS</h1>
+        <div class="status_of_job">
+            <a href="/">В процесе</a>
+            <a href="/done">Готовые</a>
+        </div>
+
+        {% for todo in todos %}
+        <div style="border: 1px solid {{ todo.priority }}" class="superbordered-div">
+            <h3 class="header-text">{{ todo.title }}</h3>
+            <p class="main-text">{{ todo.main_text }}</p>
+            <strong class="d-block text-gray-dark job-on">{{ todo.job_type }}</strong>
+        </div>
+        {% endfor %}
+
+    </div>
+</main>
